@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using subscriblySystem.Infrastructure.Context;
+using SubscriblySystems.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,8 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.RegisterServices(builder.Configuration);
 
 var app = builder.Build();
 

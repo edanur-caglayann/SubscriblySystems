@@ -5,11 +5,13 @@ using subscriblySystem.Infrastructure.Context;
 
 namespace SubscriblySystems.Infrastructure;
 
-public class ServiceRegistration
+public static class ServiceRegistration 
 {
-   public static void RegisterServices(IServiceCollection services, IConfiguration configuration)
+   public static void RegisterServices(this IServiceCollection services, IConfiguration configuration)
    {
       services.AddDbContext<AppDbContext>(opt => opt.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
    }
 }
+// extantion 
+// this dedigime yetenek kazndirmis oluyorum

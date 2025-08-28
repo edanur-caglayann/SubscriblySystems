@@ -14,4 +14,14 @@
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Services\BillPaymentHistoryService\" />
+      <Folder Include="Services\BillService\" />
+      <Folder Include="Services\BillTypeService\" />
+      <Folder Include="Services\BoardService\" />
+      <Folder Include="Services\IncomeHistoryService\" />
+      <Folder Include="Services\IncomeService\" />
+      <Folder Include="Services\IncomeTypeService\" />
+    </ItemGroup>
+
 </Project>
