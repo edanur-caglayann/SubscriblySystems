@@ -51,4 +51,21 @@ public class ReadRepository<T> : IReadRepository<T> where T : BaseEntity
             query = query.AsNoTracking();
         return await query.FirstOrDefaultAsync(data => data.Id == id);
     }
+
+    public IQueryable<T> GetUserWithBoard(Expression<Func<T, bool>> filter = null,
+        params Expression<Func<T, object>>[] includeProperties)
+    {
+        var query = Table.AsQueryable().AsNoTracking();
+        
+        if(filter != null) query = query.Where(filter); // filtre verildgiyse uygula
+        if (includeProperties != null)
+        {
+            foreach (var includeProperty in includeProperties)
+            {
+                query = query.Include(includeProperty);
+            }
+        }
+
+        return query;
+    }
 }

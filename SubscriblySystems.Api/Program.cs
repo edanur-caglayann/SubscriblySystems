@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using subscriblySystem.Infrastructure.Context;
+using SubscriblySystems.Api.Mapping;
 using SubscriblySystems.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 
 builder.Services.RegisterServices(builder.Configuration);
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
 
 var app = builder.Build();
 

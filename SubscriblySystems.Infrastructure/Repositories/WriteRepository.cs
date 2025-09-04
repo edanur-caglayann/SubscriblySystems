@@ -29,10 +29,10 @@ public class WriteRepository<T> : IWriteRepository<T> where T : BaseEntity
         return true;
     }
 
-    public bool Update(T entity)
+    public async Task<bool> UpdateAsync(T entity)
     {
-       EntityEntry<T> entityEntry = Table.Update(entity);
-       return entityEntry.State == EntityState.Modified;
+        EntityEntry<T> entityEntry = Table.Update(entity);
+        return entityEntry.State == EntityState.Modified;;
     }
 
     public async Task<bool> DeleteAsync(Guid id)
